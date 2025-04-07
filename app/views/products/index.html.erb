@@ -1,7 +1,27 @@
-<h1>Makeup Products</h1>
-<% @products.each do |product| %>
-  <h3><%= link_to product.product_name, product %></h3>
-  <img src="<%= product.image %>" alt="<%= product.product_name %>">
-  <h4>$<%= product.price %></h4>
-<% end %>
+<h2 class="title is-2">All Makeup Products:</h2>
+
+<div class="grid">
+  <% @products.each do |product| %>
+    <div class="cell">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by5">
+            <img src="<%= product.image %>" alt="<%= product.product_name %>">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"><%= link_to product.product_name, product, :class =>"title is-4" %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<nav class="pagination is-centered" aria-label="pagination">
+  <%= paginate @products %>
+</nav>
 
