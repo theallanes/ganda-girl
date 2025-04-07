@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "products#index"
+  resources :products, only: [ :index, :show ]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
