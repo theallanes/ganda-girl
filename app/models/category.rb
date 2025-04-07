@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   belongs_to :type
 
-  validates :category_name, uniqueness: true
+  validates :category_name, uniqueness: true, presence: true
 
   def self.ransackable_associations(auth_object = nil)
     [ "type" ]
