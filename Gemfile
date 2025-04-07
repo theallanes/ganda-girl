@@ -32,6 +32,7 @@ gem "activeadmin"
 gem "devise"
 gem "sass-rails"
 gem "httparty"
+gem "kaminari"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
