@@ -1,0 +1,21 @@
+<div class="column is-one-third">
+  <% if product.image.present? %>
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <%= image_tag product.image %>
+      </figure>
+    </div>
+  <% end %>
+  <div class="card horse">
+    <div class="card-content">
+    <p class="title is-4">
+        <%= link_to product.product_name, product %>
+    </p>
+    <ul>
+      <li>
+        <strong>Price:</strong> $<%= product.price %>
+      </li>
+    </ul>
+    </div>
+  </div>
+</div>

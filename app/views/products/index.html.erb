@@ -1,24 +1,9 @@
-<h2 class="title is-2">All Makeup Products:</h2>
+<h2 class = "title is-2">GandaGirl Products</h2>
 
-<div class="grid">
-  <% @products.each do |product| %>
-    <div class="cell">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by5">
-            <img src="<%= product.image %>" alt="<%= product.product_name %>">
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4"><%= link_to product.product_name, product, :class =>"title is-4" %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="columns is-multiline">
+  <%= render partial: 'product',
+             collection: @products,
+             locals: { name_is_link: true } %>
 </div>
 
 <nav class="pagination is-centered" aria-label="pagination">
