@@ -1,33 +1,30 @@
 require 'httparty'
 
-
 AdminUser.destroy_all
 ProductTag.destroy_all
 Product.destroy_all
 Tag.destroy_all
-# Brand.destroy_all
-# Type.destroy_all
-# Category.destroy_all
-
-
+Brand.destroy_all
+Type.destroy_all
+Category.destroy_all
 
 makeup_url = 'https://makeup-api.herokuapp.com/api/v1/products.json'
 makeups = HTTParty.get(makeup_url)
 
 
 makeups.each do |makeup|
-  # Brand.create(
-  #   brand_name: makeup["brand"]
-  # )
+  Brand.create(
+    brand_name: makeup["brand"]
+  )
 
-  # Type.create(
-  #   type_name: makeup["product_type"]
-  # )
+  Type.create(
+    type_name: makeup["product_type"]
+  )
 
-  # type = Type.find_by(type_name: makeup["product_type"])
-  # type.categories.create(
-  #   category_name: makeup["category"]
-  # )
+  type = Type.find_by(type_name: makeup["product_type"])
+  type.categories.create(
+    category_name: makeup["category"]
+  )
 
   makeup["tag_list"].each do |tag|
     Tag.find_or_create_by(
