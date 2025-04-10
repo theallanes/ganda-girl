@@ -6,7 +6,8 @@ class Product < ApplicationRecord
 
   has_one_attached :image
 
-  validates :product_name, uniqueness: true
+  validates :product_name, uniqueness: true, presence: true
+  validates :price, numericality: true
 
   def self.ransackable_attributes(auth_object = nil)
     [ "brand_id", "created_at", "description", "id", "image", "price", "product_name", "type_id", "updated_at" ]
