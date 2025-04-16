@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
     <title><%= content_for(:title) || "Ganda Girl" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,6 +22,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <div class="m-3 has-text-centered">
+          <h1 class="title is-1">Ganda Girl 💄</h1>
+        </div>
+        <%= render partial: "common/header"%>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>
