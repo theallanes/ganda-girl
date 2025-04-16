@@ -6,6 +6,8 @@ class CartController < ApplicationController
       session[:cart] << @product.id
       flash[:notice] = "#{@product.product_name} was added to cart"
     end
+
+    redirect_to root_path
   end
 
   def destroy
@@ -13,6 +15,8 @@ class CartController < ApplicationController
       session[:cart].delete(@product.id)
       flash[:notice] = "#{@product.product_name} was removed from cart"
     end
+
+    redirect_to root_path
   end
 
   private

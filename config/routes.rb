@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "products#index"
-  resources :cart, only: [ :create, :destroy ]
+  resources :cart, only: [ :index, :create, :destroy ]
   resources :brands, only: [ :index, :show ]
   resources :types, only: [ :index, :show ]
   resources :products, only: [ :index, :show ]
