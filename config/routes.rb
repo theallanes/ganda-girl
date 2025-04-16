@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get "types/index"
-  get "types/show"
-  get "brands/index"
-  get "brands/show"
   root to: "products#index"
+  resources :brands, only: [ :index, :show ]
+  resources :types, only: [ :index, :show ]
   resources :products, only: [ :index, :show ]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
