@@ -1,2 +1,26 @@
-<h1>Brands#show</h1>
-<p>Find me in app/views/brands/show.html.erb</p>
+<h2 class="title is-2"><%= @brand.brand_name %></h2>
+
+<div class="columns is-multiline">
+  <% @brand.products.each do |product| %>
+    <div class="column is-one-quarter-desktop is-half-tablet is-full-mobile">
+      <div class="card">
+        <% if product.image.present? %>
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="<%= product.image %>" alt="<%= product.product_name %>">
+            </figure>
+          </div>
+        <% end %>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"><%= link_to product.product_name, product, :class =>"title is-4" %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

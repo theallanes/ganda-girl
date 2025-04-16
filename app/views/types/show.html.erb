@@ -4,7 +4,7 @@
   <% @type.products.each do |product| %>
     <div class="column is-one-quarter-desktop is-half-tablet is-full-mobile">
       <div class="card">
-        <% if product.image %>
+        <% if product.image.present? %>
           <div class="card-image">
             <figure class="image is-4by3">
               <img src="<%= product.image %>" alt="<%= product.product_name %>">

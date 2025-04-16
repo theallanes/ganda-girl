@@ -4,6 +4,6 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brand = Brand.find(params[:id])
+    @brand = Brand.includes(:products).find(params[:id])
   end
 end
