@@ -17,22 +17,23 @@ class Product < ApplicationRecord
     [ "brand", "product_tags", "tags", "type" ]
   end
 
-  def self.search(search)
-    if search
-      product = Product.where('product_name LIKE ?', "%#{search}%")
-      if product
-        self.where(id: product)
-      else
-        @products = Product.all
-      end
-    else
-      @products = Product.all
+  def self.search(search, brand_id = nil)
+    products = Product.all
+
+    if search.present?
+      products = products.where('product_name LIKE ?', "%#{search}%")
     end
+
+    if brand_id.present?
+      products = products.where(brand_id: brand_id)
+    end
+
+    products
   end
 
   private
 
   def product_params
-    params.require(:character).permit(:name, :search)
+    params.require(:product).permit(:name, :search)
   end
 end
