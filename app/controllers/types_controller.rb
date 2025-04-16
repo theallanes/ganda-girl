@@ -4,6 +4,6 @@ class TypesController < ApplicationController
   end
 
   def show
-    @type = Type.find(params[:id])
+    @type = Type.includes(:products).find(params[:id])
   end
 end
