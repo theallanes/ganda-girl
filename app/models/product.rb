@@ -16,4 +16,23 @@ class Product < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     [ "brand", "product_tags", "tags", "type" ]
   end
+
+  def self.search(search)
+    if search
+      product = Product.where('product_name LIKE ?', "%#{search}%")
+      if product
+        self.where(id: product)
+      else
+        @products = Product.all
+      end
+    else
+      @products = Product.all
+    end
+  end
+
+  private
+
+  def product_params
+    params.require(:character).permit(:name, :search)
+  end
 end
